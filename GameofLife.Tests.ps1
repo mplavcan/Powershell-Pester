@@ -7,9 +7,10 @@ BeforeAll {
   . $PSScriptRoot/GameOfLife.ps1
 }
 
-Describe 'Get-Planet' {
-    It 'Given no parameters, it lists all 8 planets' {
-        $allPlanets = Get-Planet
-        $allPlanets.Count | Should -Be 8
+Describe 'Rules of Game of Life' {
+    It 'Any live cell with fewer than two live neighbours dies, as if by underpopulation' {
+        $result = Is-AliveNextCycle -IsAlive $true -LiveNeighborCount 0
+        $result | Should -Be $false
     }
+
 }
