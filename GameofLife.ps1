@@ -8,8 +8,9 @@ function Is-AliveNextCycle
 
     if ($IsAlive -eq $false -and $LiveNeighborCount -eq 2) {
         return $false
+    } else {
+        ($LiveNeighborCount -eq 2) -or ($LiveNeighborCount -eq 3)
     }
-    ($LiveNeighborCount -eq 2) -or ($LiveNeighborCount -eq 3)
     # DeMorgan's Laws
     #    a & b -> !(!a | !b)
 }
